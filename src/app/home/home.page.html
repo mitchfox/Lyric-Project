@@ -4,13 +4,13 @@
         <ion-title>Your Compositions</ion-title>
         <ion-buttons slot="start">
                 <!-- 'Search' Icon to Toggle Search Bar -->
-                <ion-button start ion-button icon-only color="dark">
+                <ion-button  ion-button icon-only color="dark">
                     <ion-icon name="search"></ion-icon>
                 </ion-button>
                 
                 <!-- 'Add' Icon to Create New Composition -->
-                <ion-button slot="end" ion-button icon-only color="dark" href="/newcomposition">
-                    <ion-icon name="md-add"></ion-icon>
+                <ion-button ion-button icon-only color="dark" href="/newcomposition">
+                    <ion-icon slot="end" name="md-add"></ion-icon>
                 </ion-button>
           </ion-buttons>
     </ion-toolbar>
@@ -20,52 +20,72 @@
     </ion-toolbar> -->
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
     <!-- Sub Heading | Insert Values for Total Songs & Total Audio Recordings -->
-    <p color="light" style="font-size:12px; text-align: center">5 Compositions. 0 Audio Recordings</p>
+    <p class="home-info" color="danger" style="font-size:12px; text-align: center">5 Compositions. 0 Audio Recordings</p>
 
   <!-- Start of User Songs -->
 
-  <ion-card>
-      <!-- <ion-img src="/assets/myImg.png"></ion-img> -->
+<ion-card>
       <ion-card-header>
-          <ion-card-title style="font-size:20px">New World</ion-card-title>
+        <ion-list-header no-lines>
+            <!-- 'Lock' Icon to Unlock / Lock Compositions --> 
+            <ion-card-subtitle start no-lines style="font-size:11px" color="primary">Composition</ion-card-subtitle>
+            <ion-icon end name="lock" color="medium" style="font-size:14px"></ion-icon>
+        </ion-list-header>
+        <ion-card-title style="font-size:22px">New World</ion-card-title>
       </ion-card-header>
-      <ion-card-content>
-          <p>The content for this card</p>
+    <ion-card-content>
+        <!-- 'Description of Composition / Audio Recording --> 
+        <p style="font-size:12px">A mellow verse about the new world I have come to find after the passing of my Father</p>
       </ion-card-content>
+</ion-card>
+
+<ion-card>
+        <ion-card-header>
+          <ion-list-header no-lines>
+              <!-- 'Lock' Icon to Unlock / Lock Compositions --> 
+              <ion-card-subtitle start no-lines style="font-size:11px" color="primary">Composition</ion-card-subtitle>
+              <ion-icon end name="lock" color="medium" style="font-size:14px"></ion-icon>
+          </ion-list-header>
+          <ion-card-title style="font-size:22px">Explorer</ion-card-title>
+        </ion-card-header>
+      <ion-card-content>
+          <!-- 'Description of Composition / Audio Recording --> 
+          <p style="font-size:12px">One for discovery & my own journey. Backend of last verse needs some work</p>
+        </ion-card-content>
   </ion-card>
 
-  <ion-card>
-      <!-- <ion-img src="/assets/myImg.png"></ion-img> -->
-      <ion-card-header>
-          <ion-card-title style="font-size:20px">Love Lavish</ion-card-title>
-      </ion-card-header>
+<ion-card>
+        <ion-card-header>
+          <ion-list-header no-lines>
+              <!-- 'Lock' Icon to Unlock / Lock Compositions --> 
+              <ion-card-subtitle start no-lines style="font-size:11px" color="primary">Composition & Freestyle</ion-card-subtitle>
+              <ion-icon end name="lock" color="medium" style="font-size:14px"></ion-icon>
+          </ion-list-header>
+          <ion-card-title style="font-size:22px">Mr. Kid</ion-card-title>
+        </ion-card-header>
       <ion-card-content>
-          <p>The content for this card</p>
-      </ion-card-content>
-  </ion-card>
+          <!-- 'Description of Composition / Audio Recording --> 
+          <p style="font-size:12px">A verse about my new family and the new world I know venture</p>
+        </ion-card-content>
+</ion-card>
 
-  <ion-card>
-      <!-- <ion-img src="/assets/myImg.png"></ion-img> -->
-      <ion-card-header>
-          <ion-card-title style="font-size:20px">Explored</ion-card-title>
-      </ion-card-header>
+<ion-card>
+        <ion-card-header>
+          <ion-list-header no-lines>
+              <!-- 'Lock' Icon to Unlock / Lock Compositions --> 
+              <ion-card-subtitle start no-lines style="font-size:11px" color="primary">Composition</ion-card-subtitle>
+              <ion-icon end name="lock" color="medium" style="font-size:14px"></ion-icon>
+          </ion-list-header>
+          <ion-card-title style="font-size:22px">Ae$thetic</ion-card-title>
+        </ion-card-header>
       <ion-card-content>
-          <p>The content for this card</p>
-      </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-      <!-- <ion-img src="/assets/myImg.png"></ion-img> -->
-      <ion-card-header>
-          <ion-card-title style="font-size:20px">Ae$thetic</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-          <p>The content for this card</p>
-      </ion-card-content>
-  </ion-card>
+          <!-- 'Description of Composition / Audio Recording --> 
+          <p style="font-size:12px">A verse about my new family and the new world I know venture</p>
+        </ion-card-content>
+</ion-card>
 
   <ion-button block color="light" style="font-size:14px" href="/newcomposition" padding>New Composition</ion-button>
 
