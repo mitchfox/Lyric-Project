@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Todo, TodoService } from '../services/todo.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,16 +7,25 @@ import { Router } from '@angular/router';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss']
 })
-export class HomePage {
+export class HomePage implements OnInit {
+  todos: Todo[];
 
-  constructor(private router: Router) {
 
+
+  constructor(private router: Router, private todoService: TodoService) {}
+
+  ngOnInit() {
+    this.todoService.getTodos().subscribe(res => {
+      this.todos = res;
+    });
   }
 
-  // Button Click to New Composition
-  // newComposition() {
-  //   this.navCtrl.navigateForward('/newcomposition');
-  // }
+  remove(item) {
+    this.todoService.removeTodo(item.id);
+  }
+
+
+
 
 
 

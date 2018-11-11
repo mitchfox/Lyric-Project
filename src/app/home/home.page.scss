@@ -1,8 +1,8 @@
 p {
     margin: 0;
 }
-p.home-info {
-    padding-top: 10px;
+ion-card-content {
+    padding-top: 0px;
 }
 
 ion-list-header {
@@ -11,10 +11,18 @@ ion-list-header {
 }
 
 ion-card-header {
-    padding-bottom: 0;
     padding-top: 10px;
     
 }
 
+p.home-info {
+
+    padding-top: 10px;
+
+}
+
+.fake-skeleton {
+    width: 60%;
+}
 
 

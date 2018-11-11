@@ -1,10 +1,32 @@
 <ion-header>
   <ion-toolbar>
     <!-- Title : Editior-->
-    <ion-title></ion-title>
+    <ion-title>Editor</ion-title>
+    <ion-buttons slot="start" >
+        <ion-back-button color="dark" defaultHref="home"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
+  <!-- Ideas 
+  - May user Fab Icon to Hold Specific tools  
+  -->
+  <ion-list lines="full">
+    
+    <ion-item>
+      <ion-input require type="text" placeholder="Task" [(ngModel)]="todo.task"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input require type="number" placeholder="Priority" [(ngModel)]="todo.priority"></ion-input>
+      </ion-item>
+    
+  </ion-list>
+  <ion-textarea  placeholder="Your Song Lyrics Go Here">
+
+
+  </ion-textarea>
+
+  <ion-button expand="full" (click)="saveTodo()">Save Todo</ion-button>
 
 </ion-content>
