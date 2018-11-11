@@ -1,0 +1,156 @@
+<ion-header no-line>
+    <ion-toolbar>
+        <!-- Title -->
+        <ion-title>Your Compositions</ion-title>
+        <ion-buttons slot="start">
+                <!-- 'Search' Icon to Toggle Search Bar -->
+                <ion-button  ion-button icon-only color="dark">
+                    <ion-icon name="search"></ion-icon>
+                </ion-button>
+        </ion-buttons>
+                <ion-buttons slot="end">
+                <!-- 'Add' Icon to Create New Composition -->
+                <ion-button ion-button icon-only color="dark" href="/editor">
+                    <ion-icon name="md-add"></ion-icon>
+                </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+    <!-- Search Bar Appear for Song Search by Name -->
+    <!-- <ion-toolbar>
+            <ion-searchbar></ion-searchbar>
+    </ion-toolbar> -->
+</ion-header>
+
+<ion-content>
+
+    <!-- Sub Heading | Insert Values for Total Songs & Total Audio Recordings -->
+    <p class="home-info" color="danger" style="font-size:12px; text-align: center">5 Compositions. 0 Audio Recordings</p>
+    
+  <!-- Start of User Songs -->
+
+  <ion-list>
+
+    <!-- If No Compositions have been created, skeleton to be shown -->
+    <ng-container *ngIf="!todo || todos.length == 0">
+      <div *ngFor="let n of [0,1,2]" padding>
+        <ion-skeleton-text></ion-skeleton-text>
+        <p>
+          <ion-skeleton-text class="fake-skeleton"></ion-skeleton-text>
+        </p>
+      </div>
+    </ng-container>
+
+
+    <ion-item-sliding *ngFor="let item of todos">
+      <ion-item lines="inset" button [routerLink]="['/editor', item.id]">
+        <ion-label>
+          {{ item.task }}
+          <p>{{ item.createdAt | date:'short' }}</p>
+        </ion-label>
+        <ion-note slot="end" color="primary">{{ item.priority }}</ion-note>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option (click)="remove(item)" color="secondary">
+          Check
+          <ion-icon name="checkmark" slot="end"></ion-icon>
+        </ion-item-option>
+
+      </ion-item-options>
+    
+    
+    </ion-item-sliding>
+
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/editor" routerDirection="forward">
+     <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+
+  <!-- *ngFor="let card of data.cards" -->
+  <!-- <ion-card>
+      <ion-card-header>
+        <ion-list-header no-lines>
+            'Lock' Icon to Unlock / Lock Compositions 
+            <ion-card-subtitle start no-lines color="primary">Composition</ion-card-subtitle>
+                <ion-icon end name="lock" color="medium" style="font-size:16px"></ion-icon>
+        </ion-list-header>
+        <ion-card-title>New World</ion-card-title>
+      </ion-card-header>
+    <ion-card-content>
+        'Description of Composition / Audio Recording 
+        <p>A mellow verse about the new world I have come to find after the passing of my Father</p>
+      </ion-card-content>
+</ion-card> -->
+
+
+<!-- <ion-card>
+      <ion-card-header>
+        <ion-list-header no-lines>
+            'Lock' Icon to Unlock / Lock Compositions 
+            <ion-card-subtitle start no-lines color="primary">Composition</ion-card-subtitle>
+                <ion-icon end name="lock" color="medium" style="font-size:16px"></ion-icon>
+        </ion-list-header>
+        <ion-card-title>New World</ion-card-title>
+      </ion-card-header>
+    <ion-card-content>
+        'Description of Composition / Audio Recording 
+        <p>A mellow verse about the new world I have come to find after the passing of my Father</p>
+      </ion-card-content>
+</ion-card> -->
+
+<!-- <ion-card>
+  <ion-card-header>
+    <ion-list-header no-lines>
+        'Lock' Icon to Unlock / Lock Compositions 
+        <ion-card-subtitle start no-lines color="primary">Composition</ion-card-subtitle>
+            <ion-icon end name="lock" color="medium" style="font-size:16px"></ion-icon>
+    </ion-list-header>
+    <ion-card-title>Explorer</ion-card-title>
+  </ion-card-header>
+<ion-card-content>
+    'Description of Composition / Audio Recording 
+    <p>A mellow verse about the new world I have come to find after the passing of my Father</p>
+  </ion-card-content>
+</ion-card> -->
+
+<!-- <ion-card>
+  <ion-card-header>
+    <ion-list-header no-lines>
+        'Lock' Icon to Unlock / Lock Compositions 
+        <ion-card-subtitle start no-lines color="primary">Composition</ion-card-subtitle>
+            <ion-icon end name="lock" color="medium" style="font-size:16px"></ion-icon>
+    </ion-list-header>
+    <ion-card-title>Mr. Kid</ion-card-title>
+  </ion-card-header>
+<ion-card-content>
+    'Description of Composition / Audio Recording 
+    <p>A mellow verse about the new world I have come to find after the passing of my Father</p>
+  </ion-card-content>
+</ion-card> -->
+
+<!-- <ion-card>
+  <ion-card-header>
+    <ion-list-header no-lines>
+        
+        <ion-card-subtitle start no-lines color="primary">Composition</ion-card-subtitle>
+            <ion-icon end name="lock" color="medium" style="font-size:16px"></ion-icon>
+    </ion-list-header>
+    <ion-card-title>A$thetic$</ion-card-title>
+  </ion-card-header>
+<ion-card-content>
+    
+    <p>A mellow verse about the new world I have come to find after the passing of my Father</p>
+  </ion-card-content>
+</ion-card> -->
+
+
+
+<!-- <ion-button padding href="/newcomposition" expand="block" color="primary">New Composition</ion-button> -->
+
+</ion-content>
+
