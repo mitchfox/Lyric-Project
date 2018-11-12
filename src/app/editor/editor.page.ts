@@ -11,9 +11,9 @@ import { LoadingController, NavController } from '@ionic/angular';
 export class EditorPage implements OnInit {
 
   todo: Todo = {
-    task: 'Test 123',
+    compositionName: '',
     createdAt: new Date().getTime(),
-    priority: 2
+    compositionDescription: ''
   };
 
   todoId = null;
@@ -32,6 +32,7 @@ export class EditorPage implements OnInit {
     const loading = await this.loadingController.create({
       message: 'Loading Todo..'
     });
+    await loading.present();
 
     this.todoService.getTodo(this.todoId).subscribe(res => {
       loading.dismiss();

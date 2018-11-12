@@ -5,8 +5,8 @@ import { map } from 'rxjs/operators';
 
 export interface Todo {
   id?: string;
-  task: string;
-  priority: number;
+  compositionName: string;
+  compositionDescription: string;
   createdAt: number;
 }
 

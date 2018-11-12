@@ -12,13 +12,13 @@
   <!-- Ideas 
   - May user Fab Icon to Hold Specific tools  
   -->
-  <ion-list lines="full">
+  <ion-list no-lines>
     
-    <ion-item>
-      <ion-input require type="text" placeholder="Task" [(ngModel)]="todo.task"></ion-input>
+    <ion-item no-lines>
+      <ion-input require type="text" placeholder="Composition Name" [(ngModel)]="todo.compositionName"></ion-input>
     </ion-item>
-    <ion-item>
-        <ion-input require type="number" placeholder="Priority" [(ngModel)]="todo.priority"></ion-input>
+    <ion-item no-lines>
+        <ion-input require type="text" placeholder="Description" [(ngModel)]="todo.compositionDescription"></ion-input>
       </ion-item>
     
   </ion-list>
@@ -27,6 +27,6 @@
 
   </ion-textarea>
 
-  <ion-button expand="full" (click)="saveTodo()">Save Todo</ion-button>
+  <ion-button position="bottom" expand="full" (click)="saveTodo()">Save Composition</ion-button>
 
 </ion-content>
