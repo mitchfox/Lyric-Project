@@ -8,12 +8,14 @@ import { LoadingController, NavController } from '@ionic/angular';
   templateUrl: './editor.page.html',
   styleUrls: ['./editor.page.scss'],
 })
+
 export class EditorPage implements OnInit {
 
   todo: Todo = {
     compositionName: '',
     createdAt: new Date().getTime(),
-    compositionDescription: ''
+    compositionDescription: '',
+    compositionData: ''
   };
 
   todoId = null;
@@ -30,7 +32,7 @@ export class EditorPage implements OnInit {
 
   async loadTodo() {
     const loading = await this.loadingController.create({
-      message: 'Loading Todo..'
+      message: 'Loading Composition'
     });
     await loading.present();
 
@@ -42,7 +44,7 @@ export class EditorPage implements OnInit {
 
   async saveTodo() {
     const loading = await this.loadingController.create({
-      message: 'Saving Todo..'
+      message: 'Saving Composition'
     });
     await loading.present();
       if (this.todoId) {
@@ -59,5 +61,7 @@ export class EditorPage implements OnInit {
       }
 
   }
+
+
 
 }

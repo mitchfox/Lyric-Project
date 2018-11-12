@@ -1,5 +1,5 @@
-<ion-header no-line>
-    <ion-toolbar>
+<ion-header no-line no-border>
+    <ion-toolbar no-border class="title-toolbars">
         <!-- Title -->
         <ion-title>Your Compositions</ion-title>
         <ion-buttons slot="start">
@@ -22,14 +22,8 @@
 </ion-header>
 
 <ion-content>
-
-    <!-- Sub Heading | Insert Values for Total Songs & Total Audio Recordings -->
-    <p class="home-info" color="danger" style="font-size:12px; text-align: center">5 Compositions. 0 Audio Recordings</p>
-    
   <!-- Start of User Songs -->
-
   <ion-list>
-
     <!-- If No Compositions have been created, skeleton to be shown -->
     <ng-container *ngIf="!todos || todos.length == 0">
       <div *ngFor="let n of [0,1,2]" padding>
@@ -41,33 +35,13 @@
     </ng-container>
 
 
-    <!-- <ion-item-sliding *ngFor="let item of todos">
-      <ion-item lines="inset" button [routerLink]="['/editor', item.id]">
-        <ion-label>
-          {{ item.task }}
-          <p>{{ item.createdAt | date:'short' }}</p>
-        </ion-label>
-        <ion-note slot="end" color="primary">{{ item.compositionDescription }}</ion-note>
-      </ion-item>
-
-      <ion-item-options side="end">
-        <ion-item-option (click)="remove(item)" color="secondary">
-          Check
-          <ion-icon name="checkmark" slot="end"></ion-icon>
-        </ion-item-option>
-
-      </ion-item-options>
-    
-    
-    </ion-item-sliding> -->
-
-
+<!-- Composition Cards-->
     <ion-card *ngFor="let item of todos" button [routerLink]="['/editor', item.id]">
       <ion-card-header>
         <ion-list-header no-lines>
             <!-- 'Lock' Icon to Unlock / Lock Compositions  -->
             <ion-card-subtitle start no-lines color="primary">Composition</ion-card-subtitle>
-                <ion-icon end name="lock" color="medium" style="font-size:16px"></ion-icon>
+                <ion-icon end name="unlock" color="medium" style="font-size:16px"></ion-icon>
         </ion-list-header>
         <ion-card-title>{{ item.compositionName }}</ion-card-title>
       </ion-card-header>
@@ -75,21 +49,15 @@
         <!-- 'Description of Composition / Audio Recording  -->
         <p>{{ item.compositionDescription }}</p>
       </ion-card-content>
-</ion-card>
-
-
-
-
-
-
-
+    </ion-card>
   </ion-list>
 
-  <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button routerLink="/editor" routerDirection="forward">
-     <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab> -->
+  <!-- Sub Heading | Insert Values for Total Songs & Total Audio Recordings -->
+  <p class="home-info" style="font-size:14px; text-align: center">5 Compositions. 0 Audio Recordings</p>
+
+  <!-- New Composition Button -->
+  <ion-button padding href="/editor" expand="block" color="primary">New Composition</ion-button>
+
 </ion-content>
 
 
@@ -114,6 +82,5 @@
 
 
 
-<!-- <ion-button padding href="/newcomposition" expand="block" color="primary">New Composition</ion-button> -->
 
 

@@ -7,13 +7,18 @@ export interface Todo {
   id?: string;
   compositionName: string;
   compositionDescription: string;
+  compositionData: string;
   createdAt: number;
+
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
+
+  // Count Total Compositions
+  compositionTotal: 0;
 
   private todosCollection: AngularFirestoreCollection<Todo>;
 
@@ -47,9 +52,13 @@ export class TodoService {
 
   addTodo(todo: Todo) {
     return this.todosCollection.add(todo);
+    // Increase Total Number of Compositions
+    this.compositionTotal++;
   }
 
   removeTodo(id) {
     return this.todosCollection.doc(id).delete();
+    // Decrease Total Number of Compositions
+    this.compositionTotal--;
   }
 }
