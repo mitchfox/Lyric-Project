@@ -12,6 +12,7 @@ export class HomePage implements OnInit {
 
 
 
+
   constructor(private router: Router, private todoService: TodoService) {}
 
   ngOnInit() {
@@ -23,10 +24,6 @@ export class HomePage implements OnInit {
   remove(item) {
     this.todoService.removeTodo(item.id);
   }
-
-
-
-
 
 
   // // Quotes List

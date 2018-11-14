@@ -1,29 +1,27 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header no-border>
+  <ion-toolbar no-border> 
     <!-- Title : Editior-->
     <ion-title>Editor</ion-title>
+    <ion-buttons slot="start" >
+        <ion-back-button color="dark" defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+    <ion-button ion-button color="dark" (click)="saveTodo()">
+    Save
+    </ion-button>
+</ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <!-- Ideas 
-  - May user Fab Icon to Hold Specific tools  
-  -->
-  <ion-list lines="full">
-    
-    <ion-item>
-      <ion-input require type="text" placeholder="Task" [(ngModel)]="todo.task"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-input require type="number" placeholder="Priority" [(ngModel)]="todo.priority"></ion-input>
-      </ion-item>
-    
-  </ion-list>
-  <ion-textarea  placeholder="Your Song Lyrics Go Here">
+<ion-content>
+    <!-- Title Of Composition -->
+    <ion-input padding class="editor-title" clearInput aria-required="true" require type="text" placeholder="Composition Name" [(ngModel)]="todo.compositionName" maxlength="20"></ion-input>
+    <!-- Description Of Composition -->
+    <ion-input padding class="editor-description" clearInput aria-required="true" require type="text" placeholder="Description" [(ngModel)]="todo.compositionDescription" maxlength="150"></ion-input>
 
+  <!-- Text Editor -->
+    <ion-textarea class="editor-text-area" placeholder="Your Song Lyrics Go Here!" [(ngModel)]="todo.compositionData">
+    </ion-textarea>
 
-  </ion-textarea>
-
-  <ion-button expand="full" (click)="saveTodo()">Save Todo</ion-button>
-
+  
 </ion-content>

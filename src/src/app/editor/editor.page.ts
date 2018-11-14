@@ -8,18 +8,20 @@ import { LoadingController, NavController } from '@ionic/angular';
   templateUrl: './editor.page.html',
   styleUrls: ['./editor.page.scss'],
 })
+
 export class EditorPage implements OnInit {
 
   todo: Todo = {
-    task: 'Test 123',
+    compositionName: '',
     createdAt: new Date().getTime(),
-    priority: 2
+    compositionDescription: '',
+    compositionData: ''
   };
 
   todoId = null;
 
-  constructor(private todoService: TodoService, private route: ActivatedRoute,
-    private loadingController: LoadingController, private nav: NavController ) { }
+  constructor(private route: ActivatedRoute, private nav: NavController,
+  private todoService: TodoService, private loadingController: LoadingController ) { }
 
   ngOnInit() {
     this.todoId = this.route.snapshot.params['id'];
@@ -30,8 +32,9 @@ export class EditorPage implements OnInit {
 
   async loadTodo() {
     const loading = await this.loadingController.create({
-      // content: 'Loading Todo..'
+      message: 'Loading Composition'
     });
+    await loading.present();
 
     this.todoService.getTodo(this.todoId).subscribe(res => {
       loading.dismiss();
@@ -41,7 +44,7 @@ export class EditorPage implements OnInit {
 
   async saveTodo() {
     const loading = await this.loadingController.create({
-      // content: 'Saving Todo..'
+      message: 'Saving Composition'
     });
     await loading.present();
       if (this.todoId) {
@@ -58,5 +61,7 @@ export class EditorPage implements OnInit {
       }
 
   }
+
+
 
 }
