@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Todo, TodoService } from '../services/todo.service';
+import { Composition, CompositionService } from '../services/composition.service';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -8,23 +9,24 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss']
 })
 export class HomePage implements OnInit {
-  todos: Todo[];
+  // Composition Array
+  compositions: Composition[];
+  // Composition Counter
+  public compositionTotal: 2;
+  // Search Bar Toggle Bool
+  public isSearchBarOpen = false;
 
-
-
-
-  constructor(private router: Router, private todoService: TodoService) {}
+  constructor(private router: Router, private compositionService: CompositionService, public toastController: ToastController) {}
 
   ngOnInit() {
-    this.todoService.getTodos().subscribe(res => {
-      this.todos = res;
+    this.compositionService.getCompositions().subscribe(res => {
+      this.compositions = res;
     });
   }
 
   remove(item) {
-    this.todoService.removeTodo(item.id);
+    this.compositionService.removeComposition(item.id);
   }
-
 
 
 

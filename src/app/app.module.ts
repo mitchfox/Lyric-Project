@@ -1,4 +1,4 @@
-import { TodoService } from './services/todo.service';
+import { CompositionService } from './services/composition.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -16,6 +16,10 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 
+// Native Imports & API's
+import { Keyboard } from '@ionic-native/keyboard/ngx';
+
+
 
 
 @NgModule({
@@ -26,6 +30,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
   providers: [
     StatusBar,
     SplashScreen,
+    Keyboard,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent]

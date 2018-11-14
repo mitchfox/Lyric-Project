@@ -1,10 +1,10 @@
-<ion-header no-line no-border>
-    <ion-toolbar no-border class="title-toolbars">
+<ion-header no-border >
+    <ion-toolbar no-border class="title-toolbars" color="tertiary">
         <!-- Title -->
-        <ion-title>Your Compositions</ion-title>
+        <ion-title color="dark">Compositions</ion-title>
         <ion-buttons slot="start">
                 <!-- 'Search' Icon to Toggle Search Bar -->
-                <ion-button  ion-button icon-only color="dark">
+                <ion-button  ion-button icon-only color="dark" (click)="isSearchBarOpen=true">
                     <ion-icon name="search"></ion-icon>
                 </ion-button>
         </ion-buttons>
@@ -22,41 +22,54 @@
 </ion-header>
 
 <ion-content>
-  <!-- Start of User Songs -->
-  <ion-list>
+  <!-- Search Bar shown on Icon Toggle -->
+  <ion-searchbar padding *ngIf="isSearchBarOpen" showCancelButton="true" (ionCancel)="isSearchBarOpen=false"></ion-searchbar>
+
+
+  
+  <ion-list style="margin-top: -10px;">
+      
     <!-- If No Compositions have been created, skeleton to be shown -->
-    <ng-container *ngIf="!todos || todos.length == 0">
+    <!-- <ng-container *ngIf="!compositions || compositions.length == 0">
       <div *ngFor="let n of [0,1,2]" padding>
         <ion-skeleton-text></ion-skeleton-text>
         <p>
           <ion-skeleton-text class="fake-skeleton"></ion-skeleton-text>
         </p>
       </div>
-    </ng-container>
+    </ng-container> -->
 
-
+<!-- Start of User Songs -->
 <!-- Composition Cards-->
-    <ion-card *ngFor="let item of todos" button [routerLink]="['/editor', item.id]">
+
+<!-- <ion-reorder-group disabled="false"> -->
+    <ion-card *ngFor="let item of compositions" button [routerLink]="['/editor', item.id]">
       <ion-card-header>
         <ion-list-header no-lines>
             <!-- 'Lock' Icon to Unlock / Lock Compositions  -->
             <ion-card-subtitle start no-lines color="primary">Composition</ion-card-subtitle>
                 <ion-icon end name="unlock" color="medium" style="font-size:16px"></ion-icon>
         </ion-list-header>
+        <!-- Card / Composition Title -->
         <ion-card-title>{{ item.compositionName }}</ion-card-title>
       </ion-card-header>
     <ion-card-content>
         <!-- 'Description of Composition / Audio Recording  -->
         <p>{{ item.compositionDescription }}</p>
+        <!-- <ion-reorder></ion-reorder> -->
       </ion-card-content>
     </ion-card>
+  <!-- </ion-reorder-group> -->
   </ion-list>
 
+
   <!-- Sub Heading | Insert Values for Total Songs & Total Audio Recordings -->
-  <p class="home-info" style="font-size:14px; text-align: center">5 Compositions. 0 Audio Recordings</p>
+
+  <p class="home-info" style="font-size:14px; text-align: center">{{ compositionTotal }} Compositions. 0 Audio Recordings</p>
+  
 
   <!-- New Composition Button -->
-  <ion-button padding href="/editor" expand="block" color="primary">New Composition</ion-button>
+  <ion-button padding href="/editor" expand="block" style="font-weight:700" color="primary">New Composition</ion-button>
 
 </ion-content>
 

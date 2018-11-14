@@ -4,7 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 import { HomePage } from '../home/home.page';
 import { ProfilePage } from '../profile/profile.page';
-import { SettingsPage } from '../settings/settings.page';
+import { InspirationPage } from './../inspiration/inspiration.page';
+
 
 const routes: Routes = [
   {
@@ -22,9 +23,9 @@ const routes: Routes = [
         component: HomePage
       },
       {
-        path: 'settings',
-        outlet: 'settings',
-        component: SettingsPage
+        path: 'inspiration',
+        outlet: 'inspiration',
+        component: InspirationPage
       },
       {
         path: 'profile',

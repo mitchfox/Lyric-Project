@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' },
   { path: 'editor', loadChildren: './editor/editor.module#EditorPageModule' },
   { path: 'editor/:id', loadChildren: './editor/editor.module#EditorPageModule' },
+  { path: 'inspiration', loadChildren: './inspiration/inspiration.module#InspirationPageModule' },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,25 +1,40 @@
 <ion-header no-border>
-  <ion-toolbar color="white">
+  <ion-toolbar no-border color="tertiary"> 
     <!-- Title : Editior-->
-    <!-- <ion-title>Editor</ion-title> -->
+    <ion-title color="dark">Editor</ion-title>
     <ion-buttons slot="start" >
-      <ion-back-button color="dark" defaultHref="home"></ion-back-button>
-    </ion-buttons>
+        <ion-back-button style="font-size: 14px;" text="" icon="arrow-back" defaultHref="home"></ion-back-button>
+      </ion-buttons>
     <ion-buttons slot="end">
-      <ion-button ion-button color="dark" (click)="saveTodo()">
-      Save
-      </ion-button>
-    </ion-buttons>
+        <ion-button ion-button color="dark" (click)="presentActionSheet()">
+            <ion-icon name="more"></ion-icon>
+        </ion-button>
+    <ion-button ion-button color="dark" (click)="saveComposition()">
+        <ion-icon name="save"></ion-icon>
+    </ion-button>
+</ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <!-- Title Of Composition -->
-    <ion-input padding class="editor-title" clearInput aria-required="true" require type="text" placeholder="Composition Name" [(ngModel)]="todo.compositionName" maxlength="20"></ion-input>
+    <ion-input padding class="editor-title" clearInput aria-required="true" require type="text" placeholder="Composition Name" [(ngModel)]="composition.compositionName" maxlength="20"></ion-input>
     <!-- Description Of Composition -->
-    <ion-input padding clearInput aria-required="true" require type="text" placeholder="Description" [(ngModel)]="todo.compositionDescription" maxlength="150"></ion-input>
+    <ion-input padding class="editor-description" clearInput aria-required="true" require type="text" placeholder="Description" [(ngModel)]="composition.compositionDescription" maxlength="150"></ion-input>
 
   <!-- Text Editor -->
-    <ion-textarea class="editor-text-area" placeholder="Your Song Lyrics Go Here!" [(ngModel)]="todo.compositionData">
+    <ion-textarea class="editor-text-area" placeholder="Your Song Lyrics Go Here!" [(ngModel)]="composition.compositionData">
     </ion-textarea>
+
+    <ion-toolbar>
+
+
+
+
+    </ion-toolbar>
+
+
+    
+  
 </ion-content>
+
