@@ -1,0 +1,19 @@
+<ng-container *ngIf="auth.user$ | async as user; else login">
+  <app-profile [user]="user"></app-profile>
+
+
+  <ion-button color="light" (click)="auth.signOut()">Logout</ion-button>
+</ng-container>
+
+
+<ng-template #login>
+
+    <h3>You are not logged in.</h3>
+
+  <ion-button color="light">
+      <ion-icon slot="start" name="md-mail"></ion-icon>
+  </ion-button>
+  <ion-button color="light" (click)="auth.anonymousLogin()">
+      <ion-icon slot="start" name="glasses"></ion-icon>
+  </ion-button>
+</ng-template>

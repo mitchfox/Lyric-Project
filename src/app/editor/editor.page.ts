@@ -5,6 +5,7 @@ import { LoadingController, NavController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
 import { Keyboard } from '@ionic-native/keyboard/ngx';
 import { ActionSheetController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 
 
 @Component({
@@ -24,9 +25,14 @@ export class EditorPage implements OnInit {
 
   compositionId = null;
 
-  constructor(private route: ActivatedRoute, private nav: NavController,
-  private compositionService: CompositionService, private loadingController: LoadingController,
-  private toastController: ToastController, private keyboard: Keyboard, private actionSheetController: ActionSheetController ) { }
+  constructor(private route: ActivatedRoute,
+  private nav: NavController,
+  private compositionService: CompositionService,
+  private loadingController: LoadingController,
+  private toastController: ToastController,
+  private keyboard: Keyboard,
+  private actionSheetController: ActionSheetController,
+  private alertController: AlertController ) { }
 
   // On Initial Launch
   ngOnInit() {
@@ -79,6 +85,35 @@ export class EditorPage implements OnInit {
     savedCompositionToast.present();
   }
 
+  async presentAlertConfirm() {
+    const alertController = document.querySelector('ion-alert-controller');
+    await alertController.componentOnReady();
+    const alert = await alertController.create({
+      header: 'Confirm!',
+      message: 'Message <strong>text</strong>!!!',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Okay',
+          handler: () => {
+            console.log('Confirm Okay');
+          }
+        }
+      ]
+    });
+    return await alert.present();
+  }
+
+
+
+
+
   // More Icon Action Sheet - Delete, Share
   async presentActionSheet() {
     const actionSheet = await this.actionSheetController.create({
@@ -87,19 +122,26 @@ export class EditorPage implements OnInit {
         icon: 'trash',
         role: 'destructive',
         handler: () => {
-          console.log('Delete clicked');
+          this.presentAlertConfirm();
         }
       }, {
         icon: 'share-alt',
         handler: () => {
           console.log('Share clicked');
+          this.presentAlertConfirm();
         }
       }, {
         icon: 'lock',
         handler: () => {
-          console.log('Favorite clicked');
+          console.log('Lock clicked');
         }
       }, {
+        icon: 'moon',
+        handler: () => {
+          console.log('Dark Mode clicked');
+        }
+      },
+      {
         icon: 'close',
         role: 'cancel',
         handler: () => {
@@ -109,4 +151,5 @@ export class EditorPage implements OnInit {
     });
     await actionSheet.present();
   }
+
 }

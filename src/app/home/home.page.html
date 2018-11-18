@@ -1,11 +1,11 @@
 <ion-header no-border >
-    <ion-toolbar no-border class="title-toolbars" color="tertiary">
+    <ion-toolbar no-border class="title-toolbars" color="tertiary" style="margin-bottom:0; padding-bottom:0;">
         <!-- Title -->
-        <ion-title color="dark">Compositions</ion-title>
-        <ion-buttons slot="start">
+        <ion-title color="dark" class="page-title">Composition</ion-title>
+        <ion-buttons slot="end">
                 <!-- 'Search' Icon to Toggle Search Bar -->
-                <ion-button  ion-button icon-only color="dark" (click)="isSearchBarOpen=true">
-                    <ion-icon name="search"></ion-icon>
+                <ion-button  ion-button icon-only color="dark">
+                    <ion-icon name="more"></ion-icon>
                 </ion-button>
         </ion-buttons>
                 <ion-buttons slot="end">
@@ -15,29 +15,28 @@
                 </ion-button>
         </ion-buttons>
     </ion-toolbar>
-    <!-- Search Bar Appear for Song Search by Name -->
-    <!-- <ion-toolbar>
-            <ion-searchbar></ion-searchbar>
-    </ion-toolbar> -->
 </ion-header>
-
 <ion-content>
-  <!-- Search Bar shown on Icon Toggle -->
-  <ion-searchbar padding *ngIf="isSearchBarOpen" showCancelButton="true" (ionCancel)="isSearchBarOpen=false"></ion-searchbar>
+  <!-- Composition -->
+  <!-- <h1 padding color="tertiary" class="page-title">Composition</h1> -->
+  <!-- All Compositions -->
+  <!-- <p padding color="light" class="page-description">'Where words fail, music speaks - Hans Christian Andersen'</p> -->
 
-
+  <!-- Search Bar -->
+  <ion-searchbar [showCancelButton]="true" padding style="padding-bottom: 0; padding-top: 0;"></ion-searchbar>
   
   <ion-list style="margin-top: -10px;">
       
-    <!-- If No Compositions have been created, skeleton to be shown -->
-    <!-- <ng-container *ngIf="!compositions || compositions.length == 0">
+    
+    <!-- If No Compositions have been createdor when loading, skeleton to be shown -->
+    <ng-container *ngIf="!compositions || compositions.length == 0">
       <div *ngFor="let n of [0,1,2]" padding>
         <ion-skeleton-text></ion-skeleton-text>
         <p>
           <ion-skeleton-text class="fake-skeleton"></ion-skeleton-text>
         </p>
       </div>
-    </ng-container> -->
+    </ng-container>
 
 <!-- Start of User Songs -->
 <!-- Composition Cards-->

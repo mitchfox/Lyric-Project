@@ -2,17 +2,18 @@
   <ion-toolbar no-border color="tertiary"> 
     <!-- Title : Editior-->
     <ion-title color="dark">Editor</ion-title>
-    <ion-buttons slot="start" >
-        <ion-back-button style="font-size: 14px;" text="" icon="arrow-back" defaultHref="home"></ion-back-button>
-      </ion-buttons>
+    <!-- Buttons -->
+    <ion-buttons slot="start">
+        <ion-button slot="start"ion-button color="dark" (click)="saveComposition()">
+            <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+    
     <ion-buttons slot="end">
         <ion-button ion-button color="dark" (click)="presentActionSheet()">
             <ion-icon name="more"></ion-icon>
         </ion-button>
-    <ion-button ion-button color="dark" (click)="saveComposition()">
-        <ion-icon name="save"></ion-icon>
-    </ion-button>
-</ion-buttons>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -21,20 +22,75 @@
     <ion-input padding class="editor-title" clearInput aria-required="true" require type="text" placeholder="Composition Name" [(ngModel)]="composition.compositionName" maxlength="20"></ion-input>
     <!-- Description Of Composition -->
     <ion-input padding class="editor-description" clearInput aria-required="true" require type="text" placeholder="Description" [(ngModel)]="composition.compositionDescription" maxlength="150"></ion-input>
+    
+    <!-- Tool bar below Description-->
+    <!-- <ion-toolbar color="tertiary">
+    Icon
+    <ion-buttons no-border slot="start">
+            <ion-button class="editor-button" value="nightowl" >
+                <ion-icon name="moon" color="dark"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        Icon
+        <ion-buttons slot="start">
+            <ion-button class="editor-button" value="folder" color="light">
+                <ion-icon name="folder" color="dark"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        Icon
+        <ion-buttons slot="start">
+            <ion-button class="editor-button" value="microphone" color="light">
+                    <ion-icon name="microphone" color="dark"></ion-icon>
+                </ion-button>
+        </ion-buttons>
+    </ion-toolbar> -->
+
 
   <!-- Text Editor -->
-    <ion-textarea class="editor-text-area" placeholder="Your Song Lyrics Go Here!" [(ngModel)]="composition.compositionData">
+    <ion-textarea style="overflow:hidden" class="editor-text-area" placeholder="Your Song Lyrics Go Here!" [(ngModel)]="composition.compositionData">
     </ion-textarea>
 
-    <ion-toolbar>
-
-
-
-
-    </ion-toolbar>
-
-
     
-  
 </ion-content>
 
+<ion-footer no-border>
+    <ion-toolbar no-border color="light">
+
+        <!-- Icon -->
+        <ion-buttons slot="end">
+            <ion-button value="fonts-format">
+                <ion-icon src="assets/custom_icons/format-font.svg" color="dark"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        <!-- Icon -->
+        <ion-buttons slot="end" color="light">
+            <ion-button value="format-italic">
+                <ion-icon src="assets/custom_icons/format-italic.svg" color="dark"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        <!-- Icon -->
+        <ion-buttons slot="end">
+                <ion-button value="fonts-bold" icon-only clear>
+                    <ion-icon src="assets/custom_icons/format-bold.svg" clear color="dark"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+
+        <!-- Icon -->
+        <ion-buttons slot="end">
+                <ion-button value="comment">
+                        <ion-icon name="md-quote" color="dark"></ion-icon>
+                    </ion-button>
+            </ion-buttons>
+
+        <!-- Icon -->
+        <ion-buttons slot="end">
+            <ion-button value="todos">
+                    <ion-icon name="md-checkbox" color="dark"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-footer>

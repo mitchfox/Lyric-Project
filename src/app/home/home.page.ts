@@ -13,8 +13,6 @@ export class HomePage implements OnInit {
   compositions: Composition[];
   // Composition Counter
   public compositionTotal: 2;
-  // Search Bar Toggle Bool
-  public isSearchBarOpen = false;
 
   constructor(private router: Router, private compositionService: CompositionService, public toastController: ToastController) {}
 
