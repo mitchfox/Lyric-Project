@@ -9,6 +9,7 @@ export interface Composition {
   compositionDescription: string;
   compositionData: string;
   createdAt: number;
+  uid: string;
 
 }
 

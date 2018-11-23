@@ -20,7 +20,9 @@ export class EditorPage implements OnInit {
     compositionName: '',
     createdAt: new Date().getTime(),
     compositionDescription: '',
-    compositionData: ''
+    compositionData: '',
+    uid: ''
+
   };
 
   compositionId = null;
@@ -84,7 +86,7 @@ export class EditorPage implements OnInit {
     });
     savedCompositionToast.present();
   }
-
+  // Alert Confirmation to Delete Notes
   async presentAlertConfirm() {
     const alertController = document.querySelector('ion-alert-controller');
     await alertController.componentOnReady();
@@ -128,7 +130,6 @@ export class EditorPage implements OnInit {
         icon: 'share-alt',
         handler: () => {
           console.log('Share clicked');
-          this.presentAlertConfirm();
         }
       }, {
         icon: 'lock',

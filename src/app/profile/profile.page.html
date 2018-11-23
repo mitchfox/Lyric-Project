@@ -1,34 +1,31 @@
-<ion-header no-border>
-  <ion-toolbar no-border color="tertiary">
-    <ion-title>You</ion-title>
-  </ion-toolbar>
+<ion-header no-border >
+    <ion-toolbar no-border class="title-toolbars" color="tertiary" style="margin-bottom:0; padding-bottom:0;">
+        <!-- Title -->
+        <!-- <ion-title color="dark" class="page-title">Composition</ion-title> -->
+                <ion-buttons slot="end">
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
     
   <!-- Profile Header -->
+  <h1 padding color="dark" class="page-title">Hello,</h1>
+  <h1 padding color="dark" class="page-title">Anonymous<ion-icon style="padding-bottom: 0; margin-bottom: -8px; padding-left: 5px;" name="md-glasses"></ion-icon></h1>
 
-    
-
-
-  <ion-item-divider>
-    </ion-item-divider>
+  
+  <!-- <ion-item-divider>
+    </ion-item-divider> -->
     
     <app-login></app-login>
-    
-    <ion-item-divider>
-        <ion-label>
-            Features
-        </ion-label>
-    </ion-item-divider>
 
     <!-- Settings Lists -->
     <ion-list>
         <ion-item-group>
             <ion-item-divider color="light"></ion-item-divider>
-            <ion-item>Upgrade to Lyric Pro</ion-item>
-            <ion-item>Composition Themes</ion-item>
-            <ion-item>Night Owl Mode</ion-item>
+            <ion-item detail>Upgrade to Lyric Pro</ion-item>
+            <ion-item>Achievements</ion-item>
+            <ion-item no-line>Night Owl Mode</ion-item>
             <ion-item-divider color="light"></ion-item-divider>
             <ion-item>Settings</ion-item>
             <ion-item>Help</ion-item>

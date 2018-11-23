@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { TabsPage } from './tabs.page';
 import { HomePage } from '../home/home.page';
 import { ProfilePage } from '../profile/profile.page';
-import { InspirationPage } from './../inspiration/inspiration.page';
+import { BandPage } from '../band/band.page';
 
 
 const routes: Routes = [
@@ -23,9 +22,9 @@ const routes: Routes = [
         component: HomePage
       },
       {
-        path: 'inspiration',
-        outlet: 'inspiration',
-        component: InspirationPage
+        path: 'band',
+        outlet: 'band',
+        component: BandPage
       },
       {
         path: 'profile',

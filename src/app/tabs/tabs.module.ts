@@ -10,7 +10,7 @@ import { TabsPageRoutingModule } from './tabs.router.module';
 import { TabsPage } from './tabs.page';
 import { ProfilePageModule } from '../profile/profile.module';
 import { SettingsPageModule } from '../settings/settings.module';
-import { InspirationPageModule } from '../inspiration/inspiration.module';
+import { BandPageModule } from '../band/band.module';
 import { HomePageModule } from '../home/home.module';
 
 @NgModule({
@@ -22,7 +22,7 @@ import { HomePageModule } from '../home/home.module';
     ProfilePageModule,
     HomePageModule,
     SettingsPageModule,
-    InspirationPageModule
+    BandPageModule
   ],
   declarations: [TabsPage]
 })

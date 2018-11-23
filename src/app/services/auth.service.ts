@@ -46,6 +46,9 @@ export class AuthService {
     return await this.updateUserData(credential.user);
   }
 
+// Add more login fucntions here
+
+
   private updateUserData({ uid, email, displayName, photoURL, isAnonymous }) {
     // Sets user data to firestore on login
 

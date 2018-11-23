@@ -8,12 +8,15 @@
 
 <ng-template #login>
 
-    <h3>You are not logged in.</h3>
+    <h3 padding style="font-size: 14px; font-weight: 700; padding-top: 0; color: #0090ff;">You are not logged in.</h3>
 
-  <ion-button color="light">
+  <ion-button padding clear>
       <ion-icon slot="start" name="md-mail"></ion-icon>
   </ion-button>
-  <ion-button color="light" (click)="auth.anonymousLogin()">
+  <ion-button padding clear>
+        <ion-icon slot="start" name="logo-facebook"></ion-icon>
+    </ion-button>
+  <ion-button padding clear (click)="auth.anonymousLogin()">
       <ion-icon slot="start" name="glasses"></ion-icon>
   </ion-button>
 </ng-template>
